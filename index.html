@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[Your Name] - Personal Portfolio & Digital Business Card</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            ink: '#111111',
+            subtle: '#6B7280',
+            borderline: '#E5E7EB',
+            surface: '#FAFAFA'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #FFFFFF;
+      color: #111111;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Subtle custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FFFFFF;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D1D5DB;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #9CA3AF;
+    }
+  </style>
+</head>
+<body class="bg-white text-[#111111] selection:bg-[#111111] selection:text-white">
+  <!-- Top Freelancer Showcase Banner -->
+  <div class="bg-[#111111] text-white text-xs sm:text-sm py-2.5 px-4 sticky top-0 z-50 border-b border-neutral-800">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+      <div class="flex items-center justify-center sm:justify-start gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>
+          <strong class="font-semibold">Live Demo Template</strong> Want a website like this with <span class="underline decoration-neutral-400 underline-offset-2">YOUR</span> details?
+        </span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="openCustomizerModal()" class="px-3 py-1 rounded-full bg-neutral-800 hover:bg-neutral-700 text-white text-xs font-medium transition border border-neutral-700 flex items-center gap-1.5">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          <span>Try Your Name</span>
+        </button>
+        <a href="#order-section" class="px-3.5 py-1 rounded-full bg-white text-[#111111] hover:bg-neutral-200 text-xs font-semibold transition">
+          Get Yours Today
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Sticky Navigation Header -->
+  <header class="sticky top-[68px] sm:top-[42px] z-40 bg-white/90 backdrop-blur-md border-b border-[#E5E7EB]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <!-- Brand / Name -->
+      <a href="#" class="font-semibold text-base sm:text-lg tracking-tight flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-[#111111] text-white flex items-center justify-center text-xs font-bold live-initials">YN</span>
+        <span class="live-name">[Your Name]</span>
+      </a>
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-neutral-600">
+        <a href="#about" class="hover:text-[#111111] transition">About</a>
+        <a href="#services" class="hover:text-[#111111] transition">Expertise</a>
+        <a href="#experience" class="hover:text-[#111111] transition">Experience</a>
+        <a href="#projects" class="hover:text-[#111111] transition">Work</a>
+        <a href="#contact" class="hover:text-[#111111] transition">Contact</a>
+      </nav>
+      <!-- Action CTA & Mobile Menu Toggle -->
+      <div class="flex items-center gap-2">
+        <a href="#order-section" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#111111] text-white text-xs font-medium hover:bg-neutral-800 transition">
+          <span>Get This Website</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </a>
+        <button id="mobile-menu-btn" aria-label="Toggle Menu" class="md:hidden p-2 rounded-lg border border-[#E5E7EB] text-[#111111] hover:bg-neutral-50 transition">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-[#E5E7EB] px-4 py-4 space-y-3">
+      <a href="#about" class="block py-1.5 text-sm font-medium text-neutral-700 hover:text-[#111111] mobile-nav-link">About</a>
+      <a href="#services" class="block py-1.5 text-sm font-medium text-neutral-700 hover:text-[#111111] mobile-nav-link">Services & Expertise</a>
+      <a href="#experience" class="block py-1.5 text-sm font-medium text-neutral-700 hover:text-[#111111] mobile-nav-link">Experience & Education</a>
+      <a href="#projects" class="block py-1.5 text-sm font-medium text-neutral-700 hover:text-[#111111] mobile-nav-link">Featured Work</a>
+      <a href="#contact" class="block py-1.5 text-sm font-medium text-neutral-700 hover:text-[#111111] mobile-nav-link">Contact</a>
+      <div class="pt-2 border-t border-[#E5E7EB]">
+        <a href="#order-section" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#111111] text-white text-sm font-medium mobile-nav-link">
+          <span>Order This Website With Your Details</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="max-w-5xl mx-auto px-4 sm:px-6">
+    <!-- 1. HERO SECTION -->
+    <section class="py-12 sm:py-20 border-b border-[#E5E7EB]">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-12">
+        <!-- Left Text Column -->
+        <div class="flex-1 space-y-5">
+          <!-- Availability & Location Pill -->
+          <div class="flex flex-wrap items-center gap-2.5">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-neutral-100 text-[#111111] border border-[#E5E7EB]">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#111111]"></span>
+              Available for Opportunities
+            </span>
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium text-neutral-600 border border-[#E5E7EB]">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+              <span class="live-location">[Your City, Country]</span>
+            </span>
+          </div>
+          <!-- Full Name & Role -->
+          <div class="space-y-2">
+            <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-[#111111] live-name">
+              [Your Name]
+            </h1>
+            <p class="text-lg sm:text-xl font-medium text-neutral-600 live-role">
+              [Your Profession / Role - e.g., Creative Director & Strategy Consultant]
+            </p>
+          </div>
+          <!-- Short 2-Line Bio -->
+          <p class="text-sm sm:text-base text-neutral-600 max-w-xl leading-relaxed live-bio">
+            Helping ambitious brands and individuals turn complex ideas into clear, high-impact digital experiences. Passionate about minimalist design, strategy, and measurable growth.
+          </p>
+          <!-- Primary Action Buttons -->
+          <div class="pt-2 flex flex-wrap items-center gap-3">
+            <a href="#contact" class="px-5 py-3 rounded-xl bg-[#111111] text-white text-sm font-medium hover:bg-neutral-800 transition flex items-center gap-2">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>Contact Me</span>
+            </a>
+            <button onclick="downloadVCard()" class="px-5 py-3 rounded-xl bg-white text-[#111111] border border-[#E5E7EB] hover:border-[#111111] text-sm font-medium transition flex items-center gap-2">
+              <i data-lucide="user-plus" class="w-4 h-4"></i>
+              <span>Save Contact (vCard)</span>
+            </button>
+            <button onclick="copyProfileLink()" class="p-3 rounded-xl bg-white text-[#111111] border border-[#E5E7EB] hover:border-[#111111] transition" title="Copy Profile Link">
+              <i data-lucide="share-2" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+        <!-- Right Profile Photo Placeholder -->
+        <div class="w-full md:w-auto flex justify-start md:justify-end">
+          <div class="relative group">
+            <div class="w-40 h-40 sm:w-52 sm:h-52 rounded-2xl border border-[#E5E7EB] bg-[#FAFAFA] overflow-hidden flex flex-col items-center justify-center p-4 text-center shadow-sm">
+              <!-- Clean Minimalist Avatar Placeholder -->
+              <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white border border-[#E5E7EB] flex items-center justify-center mb-2.5 text-neutral-400">
+                <i data-lucide="user" class="w-8 h-8 sm:w-10 sm:h-10 stroke-[1.5]"></i>
+              </div>
+              <span class="text-xs font-semibold text-[#111111]">[Your Photo Here]</span>
+              <span class="text-[11px] text-neutral-400 mt-0.5">High-res portrait</span>
+            </div>
+            <!-- Subtle badge -->
+            <div class="absolute -bottom-3 -right-3 bg-white border border-[#E5E7EB] rounded-xl px-3 py-1.5 shadow-sm flex items-center gap-1.5">
+              <i data-lucide="badge-check" class="w-4 h-4 text-[#111111]"></i>
+              <span class="text-xs font-medium">Verified Profile</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. QUICK CONTACT & SOCIAL LINKS BAR (Digital Business Card Grid) -->
+    <section class="py-10 border-b border-[#E5E7EB]">
+      <div class="flex items-center justify-between mb-5">
+        <h2 class="text-xs font-semibold uppercase tracking-wider text-neutral-500">Direct Contact & Social Channels</h2>
+        <span class="text-xs text-neutral-400">Tap any card to connect</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <!-- Phone -->
+        <a href="tel:+1234567890" class="group p-4 rounded-xl border border-[#E5E7EB] hover:border-[#111111] transition flex items-center gap-3.5 bg-white">
+          <div class="w-10 h-10 rounded-lg bg-[#FAFAFA] border border-[#E5E7EB] group-hover:bg-[#111111] group-hover:text-white transition flex items-center justify-center shrink-0">
+            <i data-lucide="phone" class="w-4 h-4"></i>
+          </div>
+          <div class="min-w-0">
+            <p class="text-xs text-neutral-500">Phone</p>
+            <p class="text-sm font-medium text-[#111111] truncate">[+1(555) 234-5678]</p>
+          </div>
+        </a>
+        <!-- WhatsApp -->
+        <a href="#contact" onclick="showToast('WhatsApp link ready to connect to your number!')" class="group p-4 rounded-xl border border-[#E5E7EB] hover:border-[#111111] transition flex items-center gap-3.5 bg-white">
+          <div class="w-10 h-10 rounded-lg bg-[#FAFAFA] border border-[#E5E7EB] group-hover:bg-[#111111] group-hover:text-white transition flex items-center justify-center shrink-0">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+          </div>
+          <div class="min-w-0">
+            <p class="text-xs text-neutral-500">WhatsApp</p>
+            <p class="text-sm font-medium text-[#111111] truncate">Chat Directly</p>
+          </div>
+        </a>
+        <!-- Email -->
+        <a href="mailto:hello@yourname.com" class="group p-4 rounded-xl border border-[#E5E7EB] hover:border-[#111111] transition flex items-center gap-3.5 bg-white">
+          <div class="w-10 h-10 rounded-lg bg-[#FAFAFA] border border-[#E5E7EB] group-hover:bg-[#111111] group-hover:text-white transition flex items-center justify-center shrink-0">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+          </div>
+          <div class="min-w-0">
+            <p class="text-xs text-neutral-500">Email</p>
+            <p class="text-sm font-medium text-[#111111] truncate">[hello@yourname.com]</p>
+          </div>
+        </a>
+        <!-- Website -->
+        <a href="#" class="group p-4 rounded-xl border border-[#E5E7EB] hover:border-[#111111] transition flex items-center gap-3.5 bg-white">
+          <div class="w-10 h-10 rounded-lg bg-[#FAFAFA] border border-[#E5E7EB] group-hover:bg-[#111111] group-hover:text-white transition flex items-center justify-center shrink-0">
+            <i data-lucide="globe" class="w-4 h-4"></i>
+          </div>
+          <div class="min-w-0">
+            <p class="text-xs text-neutral-500">Website</p>
+            <p class="text-sm font-medium text-[#111111] truncate">[www.yourname.com]</p>
+          </div>
+        </a>
+      </div>
+      <!-- Social Links Row -->
+      <div class="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <a href="#contact" onclick="showToast('Connects to your LinkedIn profile')" class="px-4 py-2.5 rounded-xl border border-[#E5E7EB] hover:border-[#111111] transition flex items-center justify-between text-sm font-medium">
+          <span class="flex items-center gap-2">
+            <i data-lucide="linkedin" class="w-4 h-4 text-neutral-600"></i>
+            <span>LinkedIn</span>
+          </span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-neutral-400"></i>
+        </a>
+        <a href="#contact" onclick="showToast('Connects to your Instagram profile')" class="px-4 py-2.5 rounded-xl border border-[#E5E7EB] hover:border-[#111111] transition flex items-center justify-between text-sm font-medium">
+          <span class="flex items-center gap-2">
+            <i data-lucide="instagram" class="w-4 h-4 text-neutral-600"></i>
+            <span>Instagram</span>
+          </span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-neutral-400"></i>
+        </a>
+        <a href="#contact" onclick="showToast('Connects to your GitHub / Portfolio')" class="px-4 py-2.5 rounded-xl border border-[#E5E7EB] hover:border-[#111111] transition flex items-center justify-between text-sm font-medium">
+          <span class="flex items-center gap-2">
+            <i data-lucide="github" class="w-4 h-4 text-neutral-600"></i>
+            <span>GitHub</span>
+          </span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-neutral-400"></i>
+        </a>
+        <a href="#contact" onclick="showToast('Connects to your X / Twitter profile')" class="px-4 py-2.5 rounded-xl border border-[#E5E7EB] hover:border-[#111111] transition flex items-center justify-between text-sm font-medium">
+          <span class="flex items-center gap-2">
+            <i data-lucide="twitter" class="w-4 h-4 text-neutral-600"></i>
+            <span>X/Twitter</span>
+          </span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-neutral-400"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- 3. ABOUT ME SECTION -->
+    <section id="about" class="py-14 sm:py-20 border-b border-[#E5E7EB] scroll-mt-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <!-- Section Label -->
+        <div class="lg:col-span-4">
+          <span class="text-xs font-semibold uppercase tracking-wider text-neutral-500">01/About</span>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mt-2">Personal Story & Background</h2>
+        </div>
+        <!-- Editorial Narrative & Stats -->
+        <div class="lg:col-span-8 space-y-6">
+          <p class="text-base text-neutral-700 leading-relaxed">
+            Hello! I'm <strong class="font-semibold text-[#111111] live-name">[Your Name]</strong>, a dedicated professional based in <span class="live-location">[Your City, Country]</span>. Over the past several years, I have focused on helping businesses, founders, and teams achieve clarity and excellence through thoughtful execution.
+          </p>
+          <p class="text-sm sm:text-base text-neutral-600 leading-relaxed">
+            This section is designed to share your personal philosophy, approach to work, and what makes you stand out. Whether you are a consultant, doctor, lawyer, designer, real estate advisor, or entrepreneur, visitors immediately understand who you are and why they should trust you.
+          </p>
+          <!-- Key Highlights / Metrics -->
+          <div class="grid grid-cols-3 gap-4 pt-4">
+            <div class="p-4 sm:p-5 rounded-2xl border border-[#E5E7EB] bg-[#FAFAFA]">
+              <p class="text-2xl sm:text-3xl font-bold text-[#111111]">8+</p>
+              <p class="text-xs sm:text-sm text-neutral-500 mt-1">Years Experience</p>
+            </div>
+            <div class="p-4 sm:p-5 rounded-2xl border border-[#E5E7EB] bg-[#FAFAFA]">
+              <p class="text-2xl sm:text-3xl font-bold text-[#111111]">120+</p>
+              <p class="text-xs sm:text-sm text-neutral-500 mt-1">Projects Delivered</p>
+            </div>
+            <div class="p-4 sm:p-5 rounded-2xl border border-[#E5E7EB] bg-[#FAFAFA]">
+              <p class="text-2xl sm:text-3xl font-bold text-[#111111]">98%</p>
+              <p class="text-xs sm:text-sm text-neutral-500 mt-1">Client Satisfaction</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SKILLS & SERVICES OFFERED -->
+    <section id="services" class="py-14 sm:py-20 border-b border-[#E5E7EB] scroll-mt-24">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-neutral-500">02/ Capabilities</span>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mt-2">Skills & Services Offered</h2>
+        </div>
+        <p class="text-sm text-neutral-500 max-w-md">
+          Tailored services and core areas of expertise customized to your profession.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <!-- Service Card 1 -->
+        <div class="p-6 rounded-2xl border border-[#E5E7EB] hover:border-[#111111] transition bg-white flex flex-col justify-between space-y-6">
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-[#111111] text-white flex items-center justify-center">
+              <i data-lucide="compass" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-semibold">[Service / Skill One]</h3>
+            <p class="text-sm text-neutral-600 leading-relaxed">
+              Strategic planning, advisory, and end-to-end execution tailored to solve your most important business challenges.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="px-2.5 py-1 rounded-md bg-neutral-100 text-neutral-700 text-xs font-medium">Strategy</span>
+            <span class="px-2.5 py-1 rounded-md bg-neutral-100 text-neutral-700 text-xs font-medium">Consulting</span>
+          </div>
+        </div>
+        <!-- Service Card 2 -->
+        <div class="p-6 rounded-2xl border border-[#E5E7EB] hover:border-[#111111] transition bg-white flex flex-col justify-between space-y-6">
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-[#111111] text-white flex items-center justify-center">
+              <i data-lucide="layers" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-semibold">[Service / Skill Two]</h3>
+            <p class="text-sm text-neutral-600 leading-relaxed">
+              Modern implementation, project management, and hands-on delivery built around quality, speed, and attention to detail.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="px-2.5 py-1 rounded-md bg-neutral-100 text-neutral-700 text-xs font-medium">Execution</span>
+            <span class="px-2.5 py-1 rounded-md bg-neutral-100 text-neutral-700 text-xs font-medium">Management</span>
+          </div>
+        </div>
+        <!-- Service Card 3 -->
+        <div class="p-6 rounded-2xl border border-[#E5E7EB] hover:border-[#111111] transition bg-white flex flex-col justify-between space-y-6">
+          <div class="space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-[#111111] text-white flex items-center justify-center">
+              <i data-lucide="trending-up" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-semibold">[Service / Skill Three]</h3>
+            <p class="text-sm text-neutral-600 leading-relaxed">
+              Long-term growth optimization, performance audits, and dedicated partnership to help you scale sustainably.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="px-2.5 py-1 rounded-md bg-neutral-100 text-neutral-700 text-xs font-medium">Growth</span>
+            <span class="px-2.5 py-1 rounded-md bg-neutral-100 text-neutral-700 text-xs font-medium">Optimization</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. EXPERIENCE & EDUCATION TIMELINE -->
+    <section id="experience" class="py-14 sm:py-20 border-b border-[#E5E7EB] scroll-mt-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <div class="lg:col-span-4">
+          <span class="text-xs font-semibold uppercase tracking-wider text-neutral-500">03/Background</span>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mt-2">Experience & Education</h2>
+          <p class="text-sm text-neutral-500 mt-3 leading-relaxed">
+            A clean chronological overview of career milestones, leadership roles, and academic credentials.
+          </p>
+        </div>
+        <div class="lg:col-span-8">
+          <div class="relative border-l border-[#E5E7EB] ml-3 space-y-8 pb-2">
+            <!-- Timeline Item 1 -->
+            <div class="relative pl-8">
+              <span class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-[#111111] ring-4 ring-white"></span>
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <h3 class="text-base font-semibold text-[#111111]">[Senior Role / Founder]</h3>
+                <span class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-neutral-100 text-neutral-700 w-fit">2023-Present</span>
+              </div>
+              <p class="text-sm font-medium text-neutral-500 mt-0.5">[Company / Studio Name] [City]</p>
+              <p class="text-sm text-neutral-600 mt-2 leading-relaxed">
+                Leading key initiatives, managing client partnerships, and driving measurable outcomes across core business operations.
+              </p>
+            </div>
+            <!-- Timeline Item 2 -->
+            <div class="relative pl-8">
+              <span class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-neutral-400 ring-4 ring-white"></span>
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <h3 class="text-base font-semibold text-[#111111]">[Previous Specialist Role]</h3>
+                <span class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-neutral-100 text-neutral-700 w-fit">2020-2023</span>
+              </div>
+              <p class="text-sm font-medium text-neutral-500 mt-0.5">[Organization Name] [City]</p>
+              <p class="text-sm text-neutral-600 mt-2 leading-relaxed">
+                Spearheaded high-visibility projects, collaborated with cross-functional teams, and improved operational efficiency by 40%.
+              </p>
+            </div>
+            <!-- Timeline Item 3 (Education) -->
+            <div class="relative pl-8">
+              <span class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-neutral-300 ring-4 ring-white"></span>
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <h3 class="text-base font-semibold text-[#111111]">[Bachelor's / Master's Degree]</h3>
+                <span class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-neutral-100 text-neutral-700 w-fit">2016-2020</span>
+              </div>
+              <p class="text-sm font-medium text-neutral-500 mt-0.5">[University / Institution Name]</p>
+              <p class="text-sm text-neutral-600 mt-2 leading-relaxed">
+                Graduated with honors. Specialized in [Your Field of Study / Certification].
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FEATURED WORK / PORTFOLIO SHOWCASE -->
+    <section id="projects" class="py-14 sm:py-20 border-b border-[#E5E7EB] scroll-mt-24">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-neutral-500">04/Portfolio</span>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mt-2">Featured Work & Case Studies</h2>
+        </div>
+        <span class="text-xs text-neutral-500">Showcase projects, case studies, or achievements</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Project Card 1 -->
+        <article class="group rounded-2xl border border-[#E5E7EB] hover:border-[#111111] transition overflow-hidden bg-white flex flex-col">
+          <div class="h-44 bg-[#FAFAFA] border-b border-[#E5E7EB] p-5 flex flex-col justify-between group-hover:bg-neutral-100 transition">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded-md bg-white border border-[#E5E7EB] text-[11px] font-medium">Case Study 01</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-neutral-400 group-hover:text-[#111111] transition"></i>
+            </div>
+            <div class="space-y-2">
+              <div class="w-2/3 h-2.5 rounded bg-neutral-200"></div>
+              <div class="w-1/2 h-2 rounded bg-neutral-200"></div>
+            </div>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="text-base font-semibold text-[#111111]">[Project / Client Title One]</h3>
+              <p class="text-sm text-neutral-600 mt-1.5 leading-relaxed">
+                Brief summary of the challenge, your role, and the measurable result achieved for this project.
+              </p>
+            </div>
+            <div class="pt-2 border-t border-[#E5E7EB] flex items-center justify-between text-xs text-neutral-500">
+              <span>[Category/Tag]</span>
+              <span>2026</span>
+            </div>
+          </div>
+        </article>
+        <!-- Project Card 2 -->
+        <article class="group rounded-2xl border border-[#E5E7EB] hover:border-[#111111] transition overflow-hidden bg-white flex flex-col">
+          <div class="h-44 bg-[#FAFAFA] border-b border-[#E5E7EB] p-5 flex flex-col justify-between group-hover:bg-neutral-100 transition">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded-md bg-white border border-[#E5E7EB] text-[11px] font-medium">Case Study 02</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-neutral-400 group-hover:text-[#111111] transition"></i>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <div class="h-10 rounded bg-neutral-200"></div>
+              <div class="h-10 rounded bg-neutral-200"></div>
+            </div>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="text-base font-semibold text-[#111111]">[Project / Client Title Two]</h3>
+              <p class="text-sm text-neutral-600 mt-1.5 leading-relaxed">
+                Highlighting key deliverables, client collaboration, and positive outcomes in a clean format.
+              </p>
+            </div>
+            <div class="pt-2 border-t border-[#E5E7EB] flex items-center justify-between text-xs text-neutral-500">
+              <span>[Category / Tag]</span>
+              <span>2025</span>
+            </div>
+          </div>
+        </article>
+        <!-- Project Card 3 -->
+        <article class="group rounded-2xl border border-[#E5E7EB] hover:border-[#111111] transition overflow-hidden bg-white flex flex-col">
+          <div class="h-44 bg-[#FAFAFA] border-b border-[#E5E7EB] p-5 flex flex-col justify-between group-hover:bg-neutral-100 transition">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded-md bg-white border border-[#E5E7EB] text-[11px] font-medium">Case Study 03</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-neutral-400 group-hover:text-[#111111] transition"></i>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-full bg-neutral-200"></div>
+              <div class="space-y-1.5 flex-1">
+                <div class="w-3/4 h-2 rounded bg-neutral-200"></div>
+                <div class="w-1/2 h-2 rounded bg-neutral-200"></div>
+              </div>
+            </div>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="text-base font-semibold text-[#111111]">[Project / Client Title Three]</h3>
+              <p class="text-sm text-neutral-600 mt-1.5 leading-relaxed">
+                Showcase an award, publication, product launch, or notable milestone from your career.
+              </p>
+            </div>
+            <div class="pt-2 border-t border-[#E5E7EB] flex items-center justify-between text-xs text-neutral-500">
+              <span>[Category / Tag]</span>
+              <span>2025</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 7. INTERACTIVE DEMO BAR + CONTACT SECTION -->
+    <section id="contact" class="py-14 sm:py-20 border-b border-[#E5E7EB] scroll-mt-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <!-- Direct Contact Info -->
+        <div class="lg:col-span-5 space-y-5">
+          <span class="text-xs font-semibold uppercase tracking-wider text-neutral-500">05/ Get In Touch</span>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Let's Connect</h2>
+          <p class="text-sm text-neutral-600 leading-relaxed">
+            Have a question, project idea, or opportunity? Send a direct message using the form or reach out through any of the contact details below.
+          </p>
+          <div class="space-y-3 pt-2 text-sm">
+            <div class="flex items-center gap-3 text-neutral-700">
+              <i data-lucide="mail" class="w-4 h-4 text-[#111111]"></i>
+              <span>[hello@yourname.com]</span>
+            </div>
+            <div class="flex items-center gap-3 text-neutral-700">
+              <i data-lucide="phone" class="w-4 h-4 text-[#111111]"></i>
+              <span>[+1(555) 234-5678]</span>
+            </div>
+            <div class="flex items-center gap-3 text-neutral-700">
+              <i data-lucide="map-pin" class="w-4 h-4 text-[#111111]"></i>
+              <span class="live-location">[Your City, Country]</span>
+            </div>
+          </div>
+        </div>
+        <!-- Clean Inquiry Form -->
+        <div class="lg:col-span-7">
+          <form onsubmit="handleContactSubmit(event)" class="p-6 sm:p-8 rounded-2xl border border-[#E5E7EB] bg-[#FAFAFA] space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-medium text-neutral-700 mb-1.5">Your Name</label>
+                <input type="text" required placeholder="Jane Smith" class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-[#E5E7EB] text-sm focus:outline-none focus:border-[#111111] transition">
+              </div>
+              <div>
+                <label class="block text-xs font-medium text-neutral-700 mb-1.5">Email Address</label>
+                <input type="email" required placeholder="jane@example.com" class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-[#E5E7EB] text-sm focus:outline-none focus:border-[#111111] transition">
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-neutral-700 mb-1.5">Subject</label>
+              <input type="text" required placeholder="Project inquiry / Consultation" class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-[#E5E7EB] text-sm focus:outline-none focus:border-[#111111] transition">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-neutral-700 mb-1.5">Message</label>
+              <textarea rows="3" required placeholder="Write your message here..." class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-[#E5E7EB] text-sm focus:outline-none focus:border-[#111111] transition"></textarea>
+            </div>
+            <button type="submit" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#111111] text-white text-sm font-medium hover:bg-neutral-800 transition flex items-center justify-center gap-2">
+              <span>Send Message</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. FREELANCER CLIENT CONVERSION CTA SECTION -->
+    <section id="order-section" class="py-14 sm:py-20 scroll-mt-24">
+      <div class="rounded-3xl bg-[#111111] text-white p-8 sm:p-12 relative overflow-hidden">
+        <div class="max-w-2xl space-y-5 relative z-10">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-xs font-medium text-neutral-200">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>Personal Website & Digital Card Service</span>
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-bold tracking-tight leading-tight">
+            Want a website like this customized with YOUR details?
+          </h2>
+          <p class="text-sm sm:text-base text-neutral-300 leading-relaxed">
+            Stand out when sharing your profile with clients, employers, or contacts. I will customize this entire layout with your photo, bio, links, work history, and contact button - ready to share anywhere.
+          </p>
+          <div class="pt-2 flex flex-wrap items-center gap-3">
+            <button onclick="openCustomizerModal()" class="px-5 py-3 rounded-xl bg-white text-[#111111] hover:bg-neutral-200 text-sm font-semibold transition flex items-center gap-2">
+              <i data-lucide="eye" class="w-4 h-4"></i>
+              <span>Preview With Your Name Now</span>
+            </button>
+            <a href="#contact" onclick="showToast('Message the developer to get your custom site built!')" class="px-5 py-3 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-white border border-neutral-700 text-sm font-medium transition">
+              Request Your Website
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-[#E5E7EB] py-8 px-4 sm:px-6 bg-[#FAFAFA]">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
+      <p>© 2026 <span class="font-medium text-[#111111] live-name">[Your Name]</span>. All rights reserved.</p>
+      <p class="text-center sm:text-right">
+        Template Demo Ready to be customized with your personal details
+      </p>
+    </div>
+  </footer>
+
+  <!-- INTERACTIVE "TRY YOUR NAME" MODAL -->
+  <div id="customizer-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 backdrop-blur-xs p-4">
+    <div class="bg-white rounded-2xl border border-[#E5E7EB] max-w-md w-full p-6 shadow-xl space-y-5 animate-fade-in">
+      <div class="flex items-center justify-between border-b border-[#E5E7EB] pb-3">
+        <div>
+          <h3 class="text-base font-bold text-[#111111]">Live Demo Personalizer</h3>
+          <p class="text-xs text-neutral-500">See how this website looks with your own details</p>
+        </div>
+        <button onclick="closeCustomizerModal()" class="p-1.5 rounded-lg hover:bg-neutral-100 text-neutral-500">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="space-y-3.5">
+        <div>
+          <label class="block text-xs font-medium text-neutral-700 mb-1">Your Full Name</label>
+          <input type="text" id="demo-input-name" placeholder="e.g., Alex Rivera" class="w-full px-3.5 py-2.5 rounded-xl border border-[#E5E7EB] text-sm focus:outline-none focus:border-[#111111]">
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-neutral-700 mb-1">Your Profession / Headline</label>
+          <input type="text" id="demo-input-role" placeholder="e.g., Architect & Interior Consultant" class="w-full px-3.5 py-2.5 rounded-xl border border-[#E5E7EB] text-sm focus:outline-none focus:border-[#111111]">
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-neutral-700 mb-1">Your City / Location</label>
+          <input type="text" id="demo-input-location" placeholder="e.g., Dubai, UAE" class="w-full px-3.5 py-2.5 rounded-xl border border-[#E5E7EB] text-sm focus:outline-none focus:border-[#111111]">
+        </div>
+      </div>
+      <div class="flex items-center justify-between gap-3 pt-2">
+        <button onclick="resetDemoDetails()" class="px-4 py-2.5 rounded-xl border border-[#E5E7EB] text-xs font-medium text-neutral-600 hover:text-[#111111] transition">
+          Reset Placeholder
+        </button>
+        <button onclick="applyDemoDetails()" class="flex-1 px-4 py-2.5 rounded-xl bg-[#111111] text-white text-sm font-medium hover:bg-neutral-800 transition">
+          Apply to Page
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBTLE TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="bg-[#111111] text-white text-xs sm:text-sm px-4 py-3 rounded-xl shadow-lg border border-neutral-800 flex items-center gap-2.5">
+      <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+      <span id="toast-message">Notification</span>
+    </div>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Toast Notification Helper
+    let toastTimeout;
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      toastMsg.textContent = message;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3200);
+    }
+
+    // Copy Profile Link
+    function copyProfileLink() {
+      const tempInput = document.createElement('input');
+      tempInput.value = window.location.href;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand('copy');
+        showToast('Profile link copied to clipboard!');
+      } catch (err) {
+        showToast('Ready to share your profile link!');
+      }
+      document.body.removeChild(tempInput);
+    }
+
+    // Generate & Download vCard (.vcf) Demo File
+    function downloadVCard() {
+      const name = document.querySelector('.live-name').textContent.trim();
+      const role = document.querySelector('.live-role').textContent.trim();
+      const vcard = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        `FN:${name}`,
+        `TITLE:${role}`,
+        'TEL;TYPE=CELL:+15552345678',
+        'EMAIL:hello@yourname.com',
+        'END:VCARD'
+      ].join('\n');
+      const blob = new Blob([vcard], { type: 'text/vcard' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${name.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_contact.vcf`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('Contact card (.vcf) downloaded!');
+    }
+
+    // Handle Contact Form Submission
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      e.target.reset();
+      showToast('Demo message sent! In your live site, this goes straight to your inbox.');
+    }
+
+    // Live Demo Personalizer Modal Functions
+    const modal = document.getElementById('customizer-modal');
+    function openCustomizerModal() {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeCustomizerModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function applyDemoDetails() {
+      const nameVal = document.getElementById('demo-input-name').value.trim();
+      const roleVal = document.getElementById('demo-input-role').value.trim();
+      const locVal = document.getElementById('demo-input-location').value.trim();
+      if (nameVal) {
+        document.querySelectorAll('.live-name').forEach(el => el.textContent = nameVal);
+        const initials = nameVal.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+        document.querySelectorAll('.live-initials').forEach(el => el.textContent = initials || 'YN');
+      }
+      if (roleVal) {
+        document.querySelectorAll('.live-role').forEach(el => el.textContent = roleVal);
+      }
+      if (locVal) {
+        document.querySelectorAll('.live-location').forEach(el => el.textContent = locVal);
+      }
+      closeCustomizerModal();
+      showToast('Preview updated with your details!');
+    }
+
+    function resetDemoDetails() {
+      document.getElementById('demo-input-name').value = '';
+      document.getElementById('demo-input-role').value = '';
+      document.getElementById('demo-input-location').value = '';
+      document.querySelectorAll('.live-name').forEach(el => el.textContent = '[Your Name]');
+      document.querySelectorAll('.live-initials').forEach(el => el.textContent = 'YN');
+      document.querySelectorAll('.live-role').forEach(el => el.textContent = '[Your Profession / Role - e.g., Creative Director & Strategy Consultant]');
+      document.querySelectorAll('.live-location').forEach(el => el.textContent = '[Your City, Country]');
+      closeCustomizerModal();
+      showToast('Reset back to template placeholders.');
+    }
+
+    // Close modal when clicking outside dialog
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeCustomizerModal();
+      }
+    });
+  </script>
+</body>
+</html>
